@@ -9,6 +9,15 @@ ext {
     jerseyVersion = '1.17.1'
     junitVersion = '4.11'
     mockitoVersion = '2.0.8-beta'
+
+    jersey2Version = '2.14'
+    resteasyVersion = '2.3.3.Final'
+    jodaTimeVersion = '2.2'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -16,6 +25,7 @@ dependencies {
             "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
             "com.google.guava:guava:$guavaVersion",
             "javax.ws.rs:javax.ws.rs-api:$javaxRSVersion",
+            files("${System.properties['java.home']}/../lib/tools.jar")
     )
 
     testCompile(
@@ -23,6 +33,15 @@ dependencies {
             "org.mockito:mockito-core:$mockitoVersion",
             "com.sun.jersey:jersey-core:$jerseyVersion",
             "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:$hibernateVersion",
-            "org.codehaus.jackson:jackson-mapper-asl:$jacksonOrigVersion"
+            "org.codehaus.jackson:jackson-mapper-asl:$jacksonOrigVersion",
+
+            "com.sun.jersey:jersey-client:$jerseyVersion",
+            "com.sun.jersey:jersey-server:$jerseyVersion",
+            "com.sun.jersey.contribs:jersey-multipart:$jerseyVersion",
+            "org.glassfish.jersey.containers:jersey-container-jdk-http:$jersey2Version",
+            "org.glassfish.jersey.core:jersey-client:$jersey2Version",
+            "org.glassfish.jersey.media:jersey-media-json-jackson:$jersey2Version",
+            "org.jboss.resteasy:resteasy-multipart-provider:$resteasyVersion",
+            "joda-time:joda-time:$jodaTimeVersion",
     )
 }
